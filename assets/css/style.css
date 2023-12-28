@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* { 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para os flocos de neve */
+.snow {
+  position: absolute;
+  transform: translateY(0); /* Inicia sem deslocamento vertical */
+  color: white;
+  font-weight: 500;
+  font-size: 35px;
+  animation: fall 1s linear; /* Aplica a animação 'fall' com duração de 1 segundo em estilo linear */
+  top: -10vh;
+}
+
+/* Animação para o movimento de queda dos flocos de neve */
+@keyframes fall {
+  0% {
+    top: -50px;
+  }
+
+  100% {
+    top: 900px;
+  }
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  width: 450px;
+  height: 500px;
+  background-color: #83e1e7;
+  box-shadow: 15px 1px 50px rgba(0, 0, 0, .2);
+  border-radius: 10px;
+}
+
+/* nevizinha do chão*/
+.card::before {
+  content: "";
+  position: absolute;
+  width: 550px;
+  height: 250px;
+  background-color: #ffff;
+  border-radius: 50%;
+  top: 300px;
+  left: -25px;
+  box-shadow: -130px -10px #f8f9fa, 80px -20px #e9ecef; /* Sombras múltiplas para efeito visual */
+}
+
+.natal-img {
+  position: absolute;
+  height: 150px;
+  overflow: visible;
+  top: 280px;
+  left: 70px;
+}
+
+.wishes {
+  position: absolute;
+  color: #005f1c;
+  top: 150px;
+  width: 450px;
+  text-align: center;
+  font-size: 65px;
+  font-weight: 500;
+  font-family: 'Ephesis', cursive;
+}
+
+.subtext {
+  position: absolute;
+  color: #468d5b;
+  top: 250px;
+  width: 450px;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Poppins';
+}
+
+.natal-card {
+  position: relative;
+  width: 450px;
+  height: 500px;
+  transform-style: preserve-3d; /* Preserva o estilo 3D para os filhos */
+  transform: perspective(2500px); /* Perspectiva para o efeito 3D */
+  transition: 3s; 
+}
+
+input#open {
+  display: none;
+}
+
+.front-card {
+  position: absolute;
+  background-color: #ffff;
+  width: 450px;
+  height: 500px;
+  overflow: hidden;
+  transform-origin: left; /* Origem da transformação para o lado esquerdo */
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: .3s;
+}
+
+.inside-card {
+  position: absolute; /*relação ao `.natal-card` */
+  background-color: #fff;
+  width: 450px;
+  height: 500px;
+  z-index: -1; /* Posiciona abaixo da frente do cartão */
+  left: 0;
+  top: 0;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13);
+  border-radius: 10px;
+  background-color: #83e1e7;
+}
+
+.click-to-open {
+  position: absolute;
+  color: #d37575;
+  top: 150px;
+  width: 450px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: 'Ephesis', cursive;
+}
+
+.open {
+  position: absolute;
+  width: 450px;
+  height: 500px;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  z-index: 6; /* Garante que está acima de outros elementos para ser clicável */
+  cursor: pointer;
+}
+
+#open:checked~.front-card {
+  transform: rotateY(-155deg); /* Gira a frente do cartão para 'abrir' */
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Ajusta o z-index da frente do cartão quando aberto */
+#open:checked~.front-card:before {
+  z-index: 5;
+}
+
