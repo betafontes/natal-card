@@ -22,7 +22,6 @@ muito fofo de flocos de neves caindo, utilizando o javascript. Também utilizamo
 
 ## 🖼️ Layout
 
-https://betafontes.github.io/natal-card/
 
 ![image](https://github.com/betafontes/natal-card/assets/70981960/53e14c04-4749-431b-b3c6-3ae1e55a9875)
 ![image](https://github.com/betafontes/natal-card/assets/70981960/559adee7-b859-47e5-b6db-1ef1e5658a4b)
