@@ -14,6 +14,7 @@ Esse repositório contém essas tais tecnologias :
 - HTML
 - CSS
 - JavaScript
+- Lib Gsap
 
 ## 💻 Projeto
 
